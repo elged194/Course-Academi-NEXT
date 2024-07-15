@@ -11,14 +11,14 @@ const Provider = ({ children }) => {
     data: usersData,
     loading: usersLoading,
     errMsg: usersErrMsg,
-  } = useFetchData("http://localhost:4000/users");
+  } = useFetchData("/api/users");
 
   // ---------------------- / Get products / ----------------------
   const {
     data: productsData,
     loading: productsLoading,
     errMsg: productsErrMsg,
-  } = useFetchData("http://localhost:4000/products");
+  } = useFetchData("/api/products");
 
   useEffect(() => {
     if (productsData) setProducts(productsData);
@@ -33,7 +33,7 @@ const Provider = ({ children }) => {
   });
 
   const addProduct = async () => {
-    const response = await fetch("http://localhost:4000/products", {
+    const response = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProduct),
@@ -51,7 +51,7 @@ const Provider = ({ children }) => {
   });
 
   const addUser = async () => {
-    const usersResponse = await fetch("http://localhost:4000/users");
+    const usersResponse = await fetch("/api/users");
     const usersData = await usersResponse.json();
 
     // تحقق مما إذا كان البريد الإلكتروني موجودًا
@@ -61,7 +61,7 @@ const Provider = ({ children }) => {
     if (emailExists) {
       alert("The email already exists go and log in");
     } else {
-      await fetch("http://localhost:4000/users", {
+      await fetch("/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),
@@ -74,7 +74,7 @@ const Provider = ({ children }) => {
   // ---------------------- / Delete User && Product /----------------------------
   // ---- / Delete Product /-----
   const deleteProduct = async (id) => {
-    await fetch(`http://localhost:4000/products/${id}`, {
+    await fetch(`/api/products/${id}`, {
       method: "DELETE",
     });
     setProducts(products.filter((product) => product.id !== id));
@@ -83,7 +83,7 @@ const Provider = ({ children }) => {
 
   // ---- / Delete User /-----
   const deleteUser = async (id) => {
-    await fetch(`http://localhost:4000/users/${id}`, { method: "DELETE" });
+    await fetch(`/api/users/${id}`, { method: "DELETE" });
     // setUsers(users.filter((user) => user.id !== id));
   };
 

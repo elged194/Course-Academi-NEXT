@@ -37,7 +37,7 @@ const Products = () => {
 
   const updateProduct = async () => {
     try {
-      await fetch(`http://localhost:4000/products/${productId}`, {
+      await fetch(`/api/products/${productId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newProduct),

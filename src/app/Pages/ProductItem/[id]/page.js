@@ -18,7 +18,7 @@ async function getProductsItems(url) {
 const ProductItem = async ({ params }) => {
   // ---- / Get User /-----
   const data = await getProductsItems(
-    `http://localhost:4000/products/${params.id}`
+    `/api/products/${params.id}`
   );
 
   if (data) {

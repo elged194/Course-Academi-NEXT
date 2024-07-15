@@ -1,19 +1,18 @@
 "use client";
 import { DashboardContext } from "@/app/context/ApiContext";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
 const PaymentRight = () => {
-  
   const { setCart } = useContext(DashboardContext);
-  const [showSnackbar, setShowSnackbar ] = useState(false);
+  const [showSnackbar, setShowSnackbar] = useState(false);
   const router = useRouter();
 
   const handleShowSnackbar = (e) => {
     e.preventDefault();
 
     setShowSnackbar(true);
-
   };
 
   useEffect(() => {
@@ -24,7 +23,6 @@ const PaymentRight = () => {
         setShowSnackbar(false);
         setCart([]);
         router.push("/");
-        
       }, 3000);
     }
     return () => clearTimeout(timer);
@@ -50,22 +48,41 @@ const PaymentRight = () => {
               name="payment-method"
               id="method-1"
               defaultChecked=""
-              
             />
             <label htmlFor="method-1" className="payment-method-item">
-              <img src="/images/visa.png" alt="" />
+              <Image
+                src="/images/visa.png"
+                alt="visa"
+                width={300}
+                height={300}
+              />
             </label>
             <input type="radio" name="payment-method" id="method-2" />
             <label htmlFor="method-2" className="payment-method-item">
-              <img src="/images/mastercard.png" alt="" />
+              <Image
+                src="/images/mastercard.png"
+                alt="mastercard"
+                width={300}
+                height={300}
+              />
             </label>
             <input type="radio" name="payment-method" id="method-3" />
             <label htmlFor="method-3" className="payment-method-item">
-              <img src="/images/paypal.png" alt="" />
+              <Image
+                src="/images/paypal.png"
+                alt="paypal"
+                width={300}
+                height={300}
+              />
             </label>
             <input type="radio" name="payment-method" id="method-4" />
             <label htmlFor="method-4" className="payment-method-item">
-              <img src="/images/stripe.png" alt="" />
+              <Image
+                src="/images/stripe.png"
+                alt="stripe"
+                width={300}
+                height={300}
+              />
             </label>
           </div>
           <div className="payment-form-group">
