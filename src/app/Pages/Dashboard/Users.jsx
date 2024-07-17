@@ -30,7 +30,7 @@ const Users = () => {
 
   const updateUser = async () => {
     try {
-      await fetch(`/api/users/${userId}`, {
+      await fetch(`http://localhost:4000/users/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),
