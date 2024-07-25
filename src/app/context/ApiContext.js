@@ -5,6 +5,7 @@ const DashboardContext = createContext();
 
 const Provider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [users, setUsers] = useState([]);
 
   // ---------------------- / Get User / ----------------------
   const {
@@ -12,6 +13,10 @@ const Provider = ({ children }) => {
     loading: usersLoading,
     errMsg: usersErrMsg,
   } = useFetchData("http://localhost:4000/users");
+
+  useEffect(() => {
+    if (usersData) setUsers(usersData);
+  }, [usersData]);
 
   // ---------------------- / Get products / ----------------------
   const {
@@ -61,12 +66,15 @@ const Provider = ({ children }) => {
     if (emailExists) {
       alert("The email already exists go and log in");
     } else {
-      await fetch("http://localhost:4000/users", {
+      const response = await fetch("http://localhost:4000/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser),
       });
+      
+      const data = await response.json();
 
+      setUsers([...users, data]);
       setNewUser({ username: "", email: "", password: "" });
     }
   };
@@ -84,7 +92,8 @@ const Provider = ({ children }) => {
   // ---- / Delete User /-----
   const deleteUser = async (id) => {
     await fetch(`http://localhost:4000/users/${id}`, { method: "DELETE" });
-    // setUsers(users.filter((user) => user.id !== id));
+
+    setUsers(users.filter((user) => user.id !== id));
   };
 
   // ---------------------- / Login Account && check User Account /----------------------------
@@ -101,7 +110,8 @@ const Provider = ({ children }) => {
 
   const checkUserAcc = () => {
     if (checkUser.email === AdminUser || isLoginEnabled) {
-      const user = usersData.find(
+
+      const user = users.find(
         (user) =>
           user.email === checkUser.email && user.password === checkUser.password
       );
@@ -252,7 +262,8 @@ const Provider = ({ children }) => {
     <DashboardContext.Provider
       value={{
         products,
-        usersData,
+        users,
+        setUsers,
         productsData,
         newProduct,
         setNewProduct,

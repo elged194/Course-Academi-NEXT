@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "NEXT.JS Cours",
-      "price": "100.97",
+      "price": "110.99",
       "description": "Your perfect pack for everyday use and walks in the forest. ",
       "category": "men's clothing",
       "image": "https://res.cloudinary.com/dyxoy6dpx/image/upload/v1713339423/OIP_56ddcd95de.jpg"
@@ -65,6 +65,20 @@
       "description": "",
       "image": "https://images.unsplash.com/photo-1545670723-196ed0954986?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdlYiUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww",
       "id": 12
+    },
+    {
+      "title": "Task Management",
+      "price": "80.99",
+      "description": "https://images.unsplash.com/photo-1659079631665-eb95370fb173?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amF2YXNjcmlwdHxlbnwwfHwwfHx8MA%3D%3D;aaaaaaaaaa",
+      "image": "https://images.unsplash.com/photo-1659079631665-eb95370fb173?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8amF2YXNjcmlwdHxlbnwwfHwwfHx8MA%3D%3D",
+      "id": 13
+    },
+    {
+      "title": "Electronic Bank Representative",
+      "price": "66.50",
+      "description": "https://images.unsplash.com/photo-1719122180607-66d0c7d5c26c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8",
+      "image": "https://images.unsplash.com/photo-1719937050814-72892488f741?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8",
+      "id": 14
     }
   ],
   "users": [
@@ -94,9 +108,9 @@
       "id": 4
     },
     {
-      "username": "H.S.G",
-      "email": "hussein.sadek@seniorsteps.net",
-      "password": "11111111",
+      "username": "hussss",
+      "email": "aaq@gmail.com",
+      "password": "123456789",
       "id": 5
     }
   ]

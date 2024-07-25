@@ -5,7 +5,7 @@ import React, { useContext, useState } from "react";
 
 const Users = () => {
   const {
-    usersData,
+    users,
     newUser,
     setNewUser,
     addUser,
@@ -90,7 +90,7 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {usersData.map((user) => (
+          {users.map((user) => (
             <>
               <tr key={user.id}>
                 <td style={{ textAlign: "center" }}>{user.id}</td>

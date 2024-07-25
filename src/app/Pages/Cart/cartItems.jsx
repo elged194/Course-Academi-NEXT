@@ -1,11 +1,13 @@
 "use client";
 import { DashboardContext } from "@/app/context/ApiContext";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
 
 const CartItems = () => {
   const { cart, deleteItemCart } = useContext(DashboardContext);
-
+  const router = useRouter();
   return (
     <>
       {cart.map((item) => {
@@ -17,15 +19,16 @@ const CartItems = () => {
               alt={item.title}
               width={500}
               height={500}
-              onClick={() => navigate(`/productItem/${item.id}`)}
             />
-            <div
-              className="product-details"
-              onClick={() => navigate(`/productItem/${item.id}`)}
+            <Link
+              href={`/Pages/ProductItem/${item.id}`}
+              style={{ width: "100%" }}
             >
-              <h3 className="product-title">{item.title}</h3>
-              <p className="product-price">${item.price}</p>
-            </div>
+              <div className="product-details">
+                <h3 className="product-title">{item.title}</h3>
+                <p className="product-price">${item.price}</p>
+              </div>
+            </Link>
             <button
               className="btn-remove"
               onClick={() => deleteItemCart(item.id)}

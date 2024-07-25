@@ -20,7 +20,7 @@ const Header = () => {
 
       <header className="header">
         <h1 className="logo"> 
-          <Link href="/">Course Academi</Link>
+          <Link href="/">Course Academy</Link>
         </h1>
 
         <ul className="nav-links">
